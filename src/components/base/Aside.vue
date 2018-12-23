@@ -1,5 +1,10 @@
 <template>
     <div>
+        <!-- 网站标题 -->
+        <div id="title">
+            <!-- logo -->
+            <span>hallucination</span>
+        </div>
         <!-- 折叠按钮 -->
         <el-button v-model="isCollapse" :icon="btnIcon" @click="collapseBtn"></el-button>
         <!-- 菜单栏 -->
@@ -39,7 +44,7 @@
 </template>
 
 <script>
-import config from "@/static/menu";
+import config from "@/static/aside_menu";
 
 export default {
     data() {
@@ -68,9 +73,17 @@ export default {
     min-height: 400px;
 }
 
+#title {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: red;
+}
+
 .el-button {
     position: relative;
     top: 80px;
     left: -120px;
+    width: 70px;
 }
 </style>
