@@ -26,5 +26,13 @@ export default [
     {
         index: '7',
         title: '随手记',
+    },
+    {
+        index: '8',
+        title: '账单',
+    },
+    {
+        index: '9',
+        title: '密码',
     }
 ]
