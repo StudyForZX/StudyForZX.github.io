@@ -1,11 +1,17 @@
 <template>
-    <div id="header">
+    <div class="header">
+        <!-- 网站标题 -->
+        <div class="title">
+            <!-- logo -->
+            <h1>hallucination</h1>
+        </div>
+
         <el-menu
             class="el-menu"
             text-color="#fff"
             mode="horizontal"
             @select="handleSelect"
-            background-color="#545c64"
+            background-color="#24292e"
             active-text-color="#ffd04b"
             :default-active="activeIndex"
         >
@@ -16,10 +22,21 @@
             >{{ item.title }}</el-menu-item>
         </el-menu>
 
-        <div id="user">
-            <div class="img-wrapper">
-                <img class="user-img" src="@/assets/header.jpg" alt="@用户姓名" width="50px" height="50px">
-            </div>
+        <div class="user">
+            <img src="@/assets/header.jpg" alt="@用户姓名" width="35px" height="35px">
+            <el-dropdown trigger="click">
+                <span class="el-dropdown-link">
+                    <span class="user-name">子兴的期盼</span>
+                    <i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>设置1</el-dropdown-item>
+                    <el-dropdown-item>设置2</el-dropdown-item>
+                    <el-dropdown-item>设置3</el-dropdown-item>
+                    <el-dropdown-item disabled>设置4</el-dropdown-item>
+                    <el-dropdown-item divided>退出</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
         </div>
     </div>
 </template>
@@ -46,34 +63,51 @@ export default {
 </script>
 
 <style scoped>
-#header {
+.header {
     height: 60px;
     text-align: left;
+}
+
+.title {
+    width: 200px;
+    color: #ffffff;
+    margin: 0 100px 0 0;
+    text-align: center;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.title h1 {
+    margin: 0;
 }
 
 .el-menu {
     display: inline-block;
 }
 
-#user {
-    width: 60px;
-    float: right;
-    text-align: center;
-    background-color: green;
-}
-
-.img-wrapper {
-    height: 60px;
-    background-color: green;
-}
-
-.user-img {
-    padding-top: 5px;
-    border-radius: 30%;
-}
-
 .el-menu-item {
     font-size: 1em;
     padding: 0 30px;
 }
+
+.user {
+    height: 60px;
+    float: right;
+}
+
+.user img {
+    margin: 12.5px 10px 0 0;
+}
+
+.user-name {
+    color: #ffffff;
+}
+
+.el-dropdown {
+    vertical-align: top;
+}
+
+/* .el-dropdown-menu {
+    background-color: darkblue;
+} */
 </style>

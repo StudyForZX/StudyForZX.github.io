@@ -1,25 +1,19 @@
 <template>
-    <div>
-        <!-- 网站标题 -->
-        <div id="title">
-            <!-- logo -->
-            <span>hallucination</span>
-        </div>
-        <!-- 折叠按钮 -->
-        <el-button v-model="isCollapse" :icon="btnIcon" @click="collapseBtn"></el-button>
+    <div class="aside">
         <!-- 菜单栏 -->
         <el-menu
             class="menu"
             text-color="#fff"
-            :default-active="defaultActive"
             :collapse="isCollapse"
             background-color="#545c64"
+            :default-active="defaultActive"
         >
             <!-- 循环 submenu -->
             <template v-for="(submenu, sKey) in config">
                 <el-submenu :key="'sKey' + sKey" :index="submenu.index">
                     <template slot="title">
-                        <i :class="submenu.icon"></i>
+                        <i :class="submenuIcon" @click="collapseBtn"></i>
+                        <!-- <i :class="submenu.icon" @click="collapseBtn"></i> -->
                         <span slot="title">{{ submenu.title }}</span>
                     </template>
                     <!-- 循环 submenu下的 el-menu-item -->
@@ -31,7 +25,10 @@
                         <el-submenu :key="'sSKey' + sSKey" :index="sSubmenu.index">
                             <template slot="title">{{ sSubmenu.title }}</template>
                             <template v-for="(sItem, sIKey) in sSubmenu.items">
-                                <el-menu-item :key="'sIkey' + sIKey" :index="sItem.index">{{ sItem.title }}</el-menu-item>
+                                <el-menu-item
+                                    :key="'sIkey' + sIKey"
+                                    :index="sItem.index"
+                                >{{ sItem.title }}</el-menu-item>
                             </template>
                         </el-submenu>
                     </template>
@@ -49,41 +46,34 @@ import config from "@/static/aside_menu";
 export default {
     data() {
         return {
-            btnIcon: "el-icon-arrow-right",
+            // menu 导航配置文件
+            config: config,
             isCollapse: true,
-            defaultActive: "1-1",
-            config: config // menu 导航配置文件
+            submenuIcon: "el-icon-d-arrow-right",
+            defaultActive: "1-1"
         };
     },
     methods: {
         collapseBtn() {
-            this.btnIcon = this.isCollapse
-                ? "el-icon-arrow-left"
-                : "el-icon-arrow-right";
-
+            // 切换左侧导航
             this.isCollapse = !this.isCollapse;
+            // 切换左侧导航图标更改
+            this.submenuIcon =
+                this.submenuIcon === "el-icon-d-arrow-right"
+                    ? "el-icon-d-arrow-left"
+                    : "el-icon-d-arrow-right";
         }
     }
 };
 </script>
 
 <style scoped>
+.el-menu {
+    margin-top: 200px;
+}
+
 .menu:not(.el-menu--collapse) {
     width: 200px;
-    min-height: 400px;
-}
-
-#title {
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    background-color: red;
-}
-
-.el-button {
-    position: relative;
-    top: 80px;
-    left: -120px;
-    width: 70px;
+    min-height: auto;
 }
 </style>

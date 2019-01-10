@@ -1,12 +1,12 @@
 <template>
     <div id="app">
         <el-container>
-            <el-aside><Aside/></el-aside>
+            <el-header><Header/></el-header>
             <el-container>
-                <el-header><Header/></el-header>
+                <el-aside v-show="true" width="auto"><Aside/></el-aside>
                 <el-main><router-view/></el-main>
-                <el-footer><Footer/></el-footer>
             </el-container>
+            <el-footer><Footer/></el-footer>
         </el-container>
     </div>
 </template>
@@ -32,7 +32,6 @@ export default {
 #app {
     height: 100%;
     color: #2c3e50;
-    text-align: center;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -42,27 +41,31 @@ export default {
     height: 100%;
 }
 
-.el-header,
-.el-footer {
-    padding: 0;
+.el-header {
+    padding: 0 10px 0 0;
     color: #333;
     line-height: 60px;
     text-align: center;
-    background-color: #545c64;
+    background-color: #24292e;
 }
 
 .el-aside {
     color: #333;
-    width: "200px";
-    line-height: 200px;
-    text-align: center;
-    background-color: #d3dce6;
+    text-align: left;
 }
 
 .el-main {
     color: #333;
-    line-height: 160px;
     text-align: center;
+}
+
+.el-aside, .el-main {
     background-color: #e9eef3;
+}
+
+.el-footer {
+    color: #333;
+    text-align: center;
+    height: 30px !important;
 }
 </style>

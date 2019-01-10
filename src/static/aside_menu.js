@@ -6,7 +6,6 @@ let config = [
     {
         index: '1',
         title: '娱乐',
-        icon: 'el-icon-location',
         items: [
             {
                 title: '单独的项',
