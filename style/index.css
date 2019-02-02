@@ -4,13 +4,47 @@ html, body{
     height: 100%;
 }
 
+ul {
+    list-style: none;
+}
+
 .main {
+    height: 100%;
     display: flex;
-    background: darkblue;
+    text-align: center;
+    align-items: center;
+    background-color: #000;
+}
+
+.brief {
+    width: 100%;
+    margin: 200px;
 }
 
 .github {
-    align-content: center;
-    justify-content: center;
-    background: red;
+    font-size: 200px;
+}
+
+.name {
+    font-size: xx-large;
+}
+
+.email, .wechat {
+    font-size: x-large;
+    margin: 20px 0;
+}
+
+.font {
+    color: #fff;
+    font-style: inherit;
+    text-shadow: 0 0 5px #CCCCCC,
+                 0 0 10px #CCCCCC,
+                 0 0 15px #CCCCCC,
+                 0 0 20px #095816,
+                 0 0 25px #095816,
+                 0 0 30px #095816,
+                 0 0 50px #095816,
+                 0 0 80px #095816,
+                 0 0 100px #095816,
+                 0 0 150px #095816;
 }
